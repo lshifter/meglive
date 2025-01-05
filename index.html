@@ -3,38 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="3;url=https://lshifter.github.io/Telegram-redirect2/"> <!-- Переход через 3 секунды на второй лендинг -->
-    <title>Покидаем TikTok браузер</title>
+    <title>Join Our Telegram Channel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(45deg, #2c3e50, #2980b9);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
         }
-        .container {
-            text-align: center;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            font-size: 24px;
+        h1 {
+            font-size: 48px;
             margin-bottom: 20px;
         }
-        p {
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="email"] {
+            padding: 15px;
             font-size: 18px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 20px;
+            width: 300px;
+        }
+        button {
+            background-color: #1abc9c;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #16a085;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Подождите, мы покидаем TikTok браузер...</h2>
-        <p>Если вы не были перенаправлены, <a href="https://lshifter.github.io/Telegram-redirect2/">нажмите здесь</a>.</p>
+
+<div class="container">
+    <h1>Get Exclusive Access to Our Telegram Channel</h1>
+    <p>Join our crypto community and stay updated with the latest trends!</p>
+    <div class="input-container">
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <button onclick="submitEmail()">Join Now</button>
     </div>
+    <div class="footer">
+        <p>By joining, you agree to receive updates from us.</p>
+    </div>
+</div>
+
+<script>
+    function submitEmail() {
+        const email = document.getElementById('email').value;
+        if (email) {
+            // Call the backend API to send the email
+            fetch('/submit-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Check your inbox for the link!');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again later.');
+            });
+        } else {
+            alert('Please enter a valid email address');
+        }
+    }
+</script>
+
 </body>
 </html>
