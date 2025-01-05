@@ -3,14 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting to Telegram...</title>
+    <title>Open in your browser</title>
     <script>
         window.onload = function() {
-            window.open("https://t.me/+qdP4CtTNi_M5YWYy", "_blank"); // Открывает ссылку в новой вкладке
+            var userAgent = navigator.userAgent.toLowerCase();
+            // Проверка на наличие встроенного браузера TikTok
+            if (userAgent.indexOf("tiktok") !== -1) {
+                // Покажем пользователю сообщение, чтобы перейти в основной браузер
+                alert("Пожалуйста, откройте ссылку в основном браузере (например, Safari или Chrome).");
+                window.location.href = "https://t.me/+qdP4CtTNi_M5YWYy";  // Ваша ссылка на Telegram
+            } else {
+                // Если не TikTok, редиректим сразу
+                window.location.href = "https://t.me/+qdP4CtTNi_M5YWYy";  // Ваша ссылка на Telegram
+            }
         };
     </script>
 </head>
 <body>
-    <p>Если вы не были перенаправлены автоматически, <a href="https://t.me/+qdP4CtTNi_M5YWYy" target="_blank">нажмите здесь</a>.</p>
+    <p>Если редирект не сработал, <a href="https://t.me/+qdP4CtTNi_M5YWYy">нажмите здесь</a>.</p>
 </body>
 </html>
