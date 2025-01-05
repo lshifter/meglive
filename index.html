@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="5;url=https://t.me/+qdP4CtTNi_M5YWYy"> <!-- Автоматический редирект через 5 секунд -->
-    <title>Покиньте TikTok браузер</title>
+    <meta http-equiv="refresh" content="3;url=https://your-second-landing-page-link.com"> <!-- Переход через 3 секунды -->
+    <title>Перехожу в обычный браузер</title>
     <style>
         body {
             display: flex;
@@ -26,41 +26,12 @@
             font-size: 24px;
             margin-bottom: 20px;
         }
-        button {
-            background-color: #4CAF50; 
-            color: white;
-            padding: 15px 32px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Нажмите ниже, чтобы покинуть TikTok браузер и перейти в основной браузер</h2>
-        <button onclick="openInSafari()">Открыть в браузере</button>
-        <p>Если кнопка не работает, перейдите в браузер вручную.</p>
+        <h2>Пожалуйста, подождите. Мы переходим на новый сайт...</h2>
+        <p>Если вы не были перенаправлены, <a href="https://your-second-landing-page-link.com">нажмите здесь</a>.</p>
     </div>
-
-    <script>
-        function openInSafari() {
-            var userAgent = navigator.userAgent.toLowerCase();
-            var isTikTok = userAgent.indexOf("tiktok") > -1;
-
-            // Если это TikTok, то используем redirect в основной браузер
-            if (isTikTok) {
-                // Открываем ссылку на Telegram в основном браузере
-                window.location.href = "https://t.me/+qdP4CtTNi_M5YWYy";
-            } else {
-                // Если это не TikTok, открываем в новой вкладке
-                window.open("https://t.me/+qdP4CtTNi_M5YWYy", "_blank");
-            }
-        }
-    </script>
 </body>
 </html>
