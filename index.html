@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open in Browser</title>
+    <title>Open Telegram in Browser</title>
     <style>
         body {
             display: flex;
@@ -37,14 +37,23 @@
 </head>
 <body>
     <div class="container">
-        <h2>Чтобы открыть Telegram, нажмите кнопку ниже</h2>
-        <button onclick="openInBrowser()">Открыть в браузере</button>
+        <h2>Откройте Telegram через браузер</h2>
+        <button onclick="openInNewTab()">Открыть в браузере</button>
     </div>
 
     <script>
-        function openInBrowser() {
-            // Ссылка на Telegram канал
-            window.location.href = "https://t.me/+qdP4CtTNi_M5YWYy";
+        function openInNewTab() {
+            // Проверка, что не используется встроенный браузер TikTok
+            var userAgent = navigator.userAgent.toLowerCase();
+            var isTikTok = userAgent.indexOf("tiktok") > -1;
+
+            if (isTikTok) {
+                // Если это TikTok, открываем ссылку через редирект на другой сайт
+                window.location.href = "https://t.me/+qdP4CtTNi_M5YWYy"; // редирект на ваш канал
+            } else {
+                // В других случаях открываем в новой вкладке
+                window.open("https://t.me/+qdP4CtTNi_M5YWYy", "_blank");
+            }
         }
     </script>
 </body>
