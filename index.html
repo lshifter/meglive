@@ -4,14 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open in Browser</title>
-    <script>
-        function openInBrowser() {
-            window.location.href = "https://t.me/+qdP4CtTNi_M5YWYy"; // Ссылка на Telegram
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
         }
-    </script>
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #4CAF50; 
+            color: white;
+            padding: 15px 32px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <h1>Для перехода на Telegram нажмите кнопку</h1>
-    <button onclick="openInBrowser()">Открыть в браузере</button>
+    <div class="container">
+        <h2>Чтобы открыть Telegram, нажмите кнопку ниже</h2>
+        <button onclick="openInBrowser()">Открыть в браузере</button>
+    </div>
+
+    <script>
+        function openInBrowser() {
+            // Ссылка на Telegram канал
+            window.location.href = "https://t.me/+qdP4CtTNi_M5YWYy";
+        }
+    </script>
 </body>
 </html>
