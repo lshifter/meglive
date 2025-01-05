@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="30;url=https://t.me/+qdP4CtTNi_M5YWYy"> <!-- Автоматический редирект через 30 секунд -->
-    <title>Открытие в Safari</title>
+    <meta http-equiv="refresh" content="5;url=https://t.me/+qdP4CtTNi_M5YWYy"> <!-- Автоматический редирект через 5 секунд -->
+    <title>Покиньте TikTok браузер</title>
     <style>
         body {
             display: flex;
@@ -42,22 +42,22 @@
 </head>
 <body>
     <div class="container">
-        <h2>Чтобы открыть Telegram, нажмите кнопку ниже:</h2>
-        <button onclick="openInBrowser()">Открыть в Safari</button>
+        <h2>Нажмите ниже, чтобы покинуть TikTok браузер и перейти в основной браузер</h2>
+        <button onclick="openInSafari()">Открыть в браузере</button>
+        <p>Если кнопка не работает, перейдите в браузер вручную.</p>
     </div>
 
     <script>
-        function openInBrowser() {
-            // Получаем userAgent, чтобы понять, используем ли TikTok
+        function openInSafari() {
             var userAgent = navigator.userAgent.toLowerCase();
             var isTikTok = userAgent.indexOf("tiktok") > -1;
 
-            // Если это TikTok, перенаправляем пользователя на страницу через Safari
+            // Если это TikTok, то используем redirect в основной браузер
             if (isTikTok) {
-                // Принудительное открытие ссылки в Safari с использованием JavaScript
-                window.location.href = "https://t.me/+qdP4CtTNi_M5YWYy"; // Ссылка на Telegram
+                // Открываем ссылку на Telegram в основном браузере
+                window.location.href = "https://t.me/+qdP4CtTNi_M5YWYy";
             } else {
-                // В остальных случаях открываем в новой вкладке
+                // Если это не TikTok, открываем в новой вкладке
                 window.open("https://t.me/+qdP4CtTNi_M5YWYy", "_blank");
             }
         }
