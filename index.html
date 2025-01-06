@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Our Telegram Channel</title>
+    <title>Redirect to Browser</title>
     <style>
         body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f3f3f3;
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            text-align: center;
-            padding: 50px;
         }
         h1 {
-            color: #1abc9c;
+            text-align: center;
+            color: #333;
         }
         .button {
             background-color: #1abc9c;
@@ -21,6 +26,8 @@
             border-radius: 5px;
             text-decoration: none;
             font-size: 18px;
+            margin-top: 20px;
+            display: inline-block;
         }
         .button:hover {
             background-color: #16a085;
@@ -28,8 +35,14 @@
     </style>
 </head>
 <body>
-    <h1>Download Our App for Exclusive Access</h1>
-    <p>Get access to our exclusive Telegram channel.</p>
-    <a href="https://apps.apple.com/us/app/your-app-id" class="button" target="_blank">Download Now</a>
+    <h1>Откройте страницу в браузере</h1>
+    <p>Для продолжения нажмите на кнопку ниже, чтобы открыть в вашем браузере.</p>
+    <a href="https://lshifter.github.io/Telegram-redirect2/" class="button">Открыть</a>
+    <script>
+        // Попытка автоматического открытия через пользовательский браузер
+        setTimeout(() => {
+            window.open("https://lshifter.github.io/Telegram-redirect2/", "_blank");
+        }, 2000);
+    </script>
 </body>
 </html>
