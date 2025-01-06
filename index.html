@@ -3,55 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open in Browser</title>
+    <title>Откройте ссылку в браузере</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f3f3f3;
             font-family: Arial, sans-serif;
-        }
-        h1 {
+            margin: 0;
+            padding: 0;
             text-align: center;
+            background-color: #f4f4f9;
             color: #333;
         }
-        .button {
-            background-color: #1abc9c;
+        header {
+            background-color: #4caf50;
             color: white;
-            padding: 15px 30px;
+            padding: 10px 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .step {
+            margin: 20px 0;
+        }
+        .step img {
+            width: 80%;
+            max-width: 300px;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            text-decoration: none;
+        }
+        .step p {
             font-size: 18px;
-            margin-top: 20px;
-            display: inline-block;
+            margin-top: 10px;
+        }
+        .final-button {
+            margin-top: 30px;
+        }
+        .button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
         }
         .button:hover {
-            background-color: #16a085;
+            background-color: #45a049;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
         }
     </style>
 </head>
 <body>
-    <h1>Откройте в вашем браузере</h1>
-    <p>Нажмите кнопку ниже, чтобы открыть страницу в вашем браузере.</p>
-    <a id="open-browser" class="button">Открыть в браузере</a>
-
-    <script>
-        // Попытка открыть Safari
-        document.getElementById("open-browser").addEventListener("click", function () {
-            const url = "https://lshifter.github.io/Telegram-redirect2/";
-
-            // Принудительное открытие через intent на Android
-            if (navigator.userAgent.includes("Android")) {
-                window.location.href = `intent://${url.replace("https://", "")}#Intent;scheme=https;action=android.intent.action.VIEW;end`;
-            } else {
-                // Принудительное открытие через Safari на iOS
-                window.location.href = `https://lshifter.github.io/Telegram-redirect2/`;
-            }
-        });
-    </script>
+    <header>
+        <h1>Как открыть ссылку в браузере?</h1>
+    </header>
+    <div class="container">
+        <div class="step">
+            <h2>Шаг 1</h2>
+            <img src="https://via.placeholder.com/300x200?text=%D0%9D%D0%B0%D0%B6%D0%B8%D1%82%D0%B5+%D0%BD%D0%B0+%D1%82%D1%80%D0%B8+%D1%82%D0%BE%D1%87%D0%BA%D0%B8" alt="Шаг 1">
+            <p>Нажмите на три точки в правом верхнем углу экрана.</p>
+        </div>
+        <div class="step">
+            <h2>Шаг 2</h2>
+            <img src="https://via.placeholder.com/300x200?text=%D0%92%D1%8B%D0%B1%D0%B5%D1%80%D0%B8%D1%82%D0%B5+%22%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D1%82%D1%8C+%D0%B2+%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80%D0%B5%22" alt="Шаг 2">
+            <p>Выберите пункт "Открыть в браузере" или "Open in Browser".</p>
+        </div>
+        <div class="step">
+            <h2>Шаг 3</h2>
+            <img src="https://via.placeholder.com/300x200?text=%D0%9D%D0%B0%D0%B6%D0%BC%D0%B8%D1%82%D0%B5+%D0%BD%D0%B0+%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D1%83" alt="Шаг 3">
+            <p>После открытия сайта нажмите на кнопку, чтобы перейти в наш Telegram-канал.</p>
+        </div>
+        <div class="final-button">
+            <a href="https://t.me/+qdP4CtTNi_M5YWYy" class="button">Перейти в Telegram</a>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Ваш бренд. Все права защищены.</p>
+    </footer>
 </body>
 </html>
