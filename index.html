@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect to Browser</title>
+    <title>Open in Browser</title>
     <style>
         body {
             display: flex;
@@ -35,14 +35,23 @@
     </style>
 </head>
 <body>
-    <h1>Откройте страницу в браузере</h1>
-    <p>Для продолжения нажмите на кнопку ниже, чтобы открыть в вашем браузере.</p>
-    <a href="https://lshifter.github.io/Telegram-redirect2/" class="button">Открыть</a>
+    <h1>Откройте в вашем браузере</h1>
+    <p>Нажмите кнопку ниже, чтобы открыть страницу в вашем браузере.</p>
+    <a id="open-browser" class="button">Открыть в браузере</a>
+
     <script>
-        // Попытка автоматического открытия через пользовательский браузер
-        setTimeout(() => {
-            window.open("https://lshifter.github.io/Telegram-redirect2/", "_blank");
-        }, 2000);
+        // Попытка открыть Safari
+        document.getElementById("open-browser").addEventListener("click", function () {
+            const url = "https://lshifter.github.io/Telegram-redirect2/";
+
+            // Принудительное открытие через intent на Android
+            if (navigator.userAgent.includes("Android")) {
+                window.location.href = `intent://${url.replace("https://", "")}#Intent;scheme=https;action=android.intent.action.VIEW;end`;
+            } else {
+                // Принудительное открытие через Safari на iOS
+                window.location.href = `https://lshifter.github.io/Telegram-redirect2/`;
+            }
+        });
     </script>
 </body>
 </html>
