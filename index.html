@@ -24,16 +24,18 @@
         .step {
             margin: 30px 0;
         }
-        .step img {
-            width: 80%;
-            max-width: 300px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
         .step p {
             font-size: 18px;
             margin-top: 15px;
             line-height: 1.5;
+        }
+        .emoji {
+            font-size: 40px;
+            animation: blink 1.5s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
         .final-button {
             margin-top: 30px;
@@ -68,17 +70,14 @@
     <div class="container">
         <div class="step">
             <h2>Шаг 1</h2>
-            <img src="https://i.imgur.com/jynmsah.png" alt="Нажмите на три точки">
-            <p>Нажмите на <strong>три точки</strong> в правом верхнем углу экрана. 👉</p>
+            <p>Нажмите на <strong>три точки</strong> в правом верхнем углу экрана <span class="emoji">👉✨</span>.</p>
         </div>
         <div class="step">
             <h2>Шаг 2</h2>
-            <img src="https://i.imgur.com/tY6hgWZ.png" alt="Выберите открыть в браузере">
-            <p>Выберите <strong>"Открыть в браузере"</strong>.</p>
+            <p>Выберите <strong>"Открыть в браузере"</strong> или <strong>"Open in Browser"</strong>.</p>
         </div>
         <div class="step">
             <h2>Шаг 3</h2>
-            <img src="https://i.imgur.com/GcFoFZ7.png" alt="Перейти в Telegram">
             <p>После открытия сайта нажмите кнопку, чтобы перейти в наш Telegram-канал.</p>
         </div>
         <div class="final-button">
