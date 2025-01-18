@@ -1,91 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Откройте ссылку в браузере</title>
+    <title>Товарна скринька</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
-            background-color: #f4f4f9;
+            background-color: #f5f5f5;
             color: #333;
         }
         header {
-            background-color: #4caf50;
+            background-color: #ff6f61;
             color: white;
-            padding: 20px 0;
-        }
-        .container {
             padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        .step {
-            margin: 30px 0;
+        section {
+            padding: 40px 20px;
+            text-align: center;
         }
-        .step p {
-            font-size: 18px;
-            margin-top: 15px;
-            line-height: 1.5;
-        }
-        .emoji {
-            font-size: 40px;
-            animation: blink 1.5s infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        .final-button {
-            margin-top: 30px;
-        }
-        .button {
-            background-color: #4caf50;
+        .cta-button {
+            background-color: #28a745;
             color: white;
+            border: none;
             padding: 15px 30px;
             font-size: 20px;
-            border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             text-decoration: none;
-            transition: background-color 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s;
         }
-        .button:hover {
-            background-color: #45a049;
+        .cta-button:hover {
+            background-color: #218838;
         }
         footer {
-            margin-top: 40px;
-            padding: 15px 0;
-            background-color: #333;
+            background-color: #343a40;
             color: white;
-            font-size: 14px;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+        h1, h2 {
+            font-weight: bold;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Откройте ссылку в браузере</h1>
+        <h1>Товарна скринька</h1>
+        <p>Ваш гід у світі вигідних товарів!</p>
     </header>
-    <div class="container">
-        <div class="step">
-            <h2>Шаг 1</h2>
-            <p>Нажмите на <strong>три точки</strong> в правом верхнем углу экрана <span class="emoji">👉✨</span>.</p>
-        </div>
-        <div class="step">
-            <h2>Шаг 2</h2>
-            <p>Выберите <strong>"Открыть в браузере"</strong> или <strong>"Open in Browser"</strong>.</p>
-        </div>
-        <div class="step">
-            <h2>Шаг 3</h2>
-            <p>После открытия сайта нажмите кнопку, чтобы перейти в наш Telegram-канал.</p>
-        </div>
-        <div class="final-button">
-            <a href="https://t.me/+qdP4CtTNi_M5YWYy" class="button">Перейти в Telegram</a>
-        </div>
-    </div>
+
+    <section>
+        <h2>Приєднуйтесь до нашого каналу</h2>
+        <p>Дізнавайтесь першими про ексклюзивні пропозиції, вигідні акції та секрети успішного заробітку на товарці.</p>
+        <a class="cta-button" href="https://t.me/+lQOhSgimxwRlMTgy" target="_blank">Підписатися на канал</a>
+    </section>
+
     <footer>
-        <p>© 2025 Ваш бренд. Все права защищены.</p>
+        <p>&copy; 2025 Товарна скринька. Всі права захищені.</p>
     </footer>
 </body>
 </html>
