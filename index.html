@@ -1,91 +1,100 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Офіційний казино бонус</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎰 Твій шанс виграти великі гроші!</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom right, #150d2e, #2d184e);
-      color: white;
+      font-family: 'Arial', sans-serif;
+      background: url('https://i.imgur.com/Xc7DqIo.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
       text-align: center;
       overflow-x: hidden;
     }
 
     h1 {
-      font-size: 2.5em;
-      margin-top: 30px;
-      text-shadow: 0 0 10px #ffcc00;
+      font-size: 3em;
+      margin-top: 1em;
+      text-shadow: 2px 2px 4px #000;
     }
 
-    .button {
-      display: inline-block;
-      margin: 20px auto;
-      padding: 18px 35px;
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-top: 2em;
+    }
+
+    .btn {
+      padding: 20px 40px;
       font-size: 1.3em;
       font-weight: bold;
-      color: white;
-      background: linear-gradient(to right, #ff7300, #ffcc00);
       border: none;
       border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
+      background: linear-gradient(145deg, #ff9800, #ffc107);
+      color: #000;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.3s, background 0.3s;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
       text-decoration: none;
     }
 
-    .button:hover {
+    .btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(255, 204, 0, 0.6);
+      background: linear-gradient(145deg, #ffc107, #ff9800);
     }
 
-    .emoji-fall {
+    .falling-emojis {
       position: fixed;
-      top: -50px;
-      font-size: 2em;
-      animation: fall linear infinite;
-      opacity: 0.7;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
+      z-index: 0;
+    }
+
+    .emoji {
+      position: absolute;
+      animation: fall linear infinite;
+      font-size: 24px;
     }
 
     @keyframes fall {
-      0% {
-        transform: translateY(-50px);
-      }
-      100% {
-        transform: translateY(110vh);
-      }
+      0% { transform: translateY(-100px); opacity: 0; }
+      100% { transform: translateY(110vh); opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <h1>🎉 Забери свій бонус тут і зроби свій депозит! Діў просто зараз! 🎉</h1>
 
-  <a href="https://go.scityweb.com/click?pid=786&offer_id=38&sub2=vitbonv_KAZIK" class="button">🌟 Бонус 200 гривень</a><br>
-  <a href="https://l29.caslworld.com/" class="button">🎠 600 фріспінів</a><br>
-  <a href="https://gguapromo.com/l/67901e2cac16b0e9740042d7?sub_id=%7Bvitbonv_KAZIK%7D" class="button">🏰 Подарунок 250 грн</a><br>
-  <a href="https://1wjaov.top/casino/list?open=register&p=pe6a" class="button">777 фріспінів 🎠</a>
+  <div class="falling-emojis" id="emojis"></div>
 
-  <!-- Falling emojis -->
+  <h1>🎉 Отримай свої бонуси прямо зараз!</h1>
+  <div class="buttons">
+    <a href="https://go.scityweb.com/click?pid=786&offer_id=38&sub2=vitbonv_KAZIK" class="btn">🔥 Бонус 200 гривень</a>
+    <a href="https://l29.caslworld.com/" class="btn">🎰 600 фріспінів</a>
+    <a href="https://gguapromo.com/l/67901e2cac16b0e9740042d7?sub_id=%7Bvitbonv_KAZIK%7D" class="btn">🎁 Подарунок 250 грн</a>
+    <a href="https://1wjaov.top/casino/list?open=register&p=pe6a" class="btn">🎰 777 фріспінів</a>
+  </div>
+
   <script>
-    const emojis = ["🌟", "💰", "🎁", "🎠", "🎰"];
+    const emojis = ['💰','🎰','🎁','💸'];
+    const container = document.getElementById('emojis');
 
-    function createEmoji() {
-      const emoji = document.createElement("div");
-      emoji.classList.add("emoji-fall");
-      emoji.style.left = Math.random() * 100 + "vw";
-      emoji.style.animationDuration = (5 + Math.random() * 5) + "s";
+    for (let i = 0; i < 40; i++) {
+      let emoji = document.createElement('div');
+      emoji.className = 'emoji';
       emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-      document.body.appendChild(emoji);
-      setTimeout(() => {
-        emoji.remove();
-      }, 10000);
+      emoji.style.left = Math.random() * 100 + 'vw';
+      emoji.style.animationDuration = (Math.random() * 3 + 3) + 's';
+      emoji.style.fontSize = (Math.random() * 20 + 20) + 'px';
+      container.appendChild(emoji);
     }
-
-    setInterval(createEmoji, 500);
   </script>
 </body>
 </html>
