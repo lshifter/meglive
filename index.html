@@ -1,145 +1,92 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Офіційна казино акція</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Офіційний казино бонус</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      color: #fff;
-      background: linear-gradient(to bottom right, #1e0033, #4b0082);
-      overflow: hidden;
-      position: relative;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #150d2e, #2d184e);
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
     }
 
     h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-top: 40px;
-      text-shadow: 2px 2px #000;
+      font-size: 2.5em;
+      margin-top: 30px;
+      text-shadow: 0 0 10px #ffcc00;
     }
 
-    .official {
-      text-align: center;
-      background-color: #ffd700;
-      color: #000;
-      font-weight: bold;
-      padding: 10px;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-    }
-
-    .offer {
+    .button {
+      display: inline-block;
       margin: 20px auto;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 15px;
-      width: 90%;
-      max-width: 500px;
-      box-shadow: 0 0 15px #ff0080;
-      text-align: center;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 15px 25px;
-      background-color: #ff1493;
-      color: white;
-      text-decoration: none;
+      padding: 18px 35px;
+      font-size: 1.3em;
       font-weight: bold;
-      font-size: 1.2rem;
-      border-radius: 50px;
-      box-shadow: 0 0 10px #ff69b4;
-      transition: transform 0.2s ease, background-color 0.2s ease;
+      color: white;
+      background: linear-gradient(to right, #ff7300, #ffcc00);
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
     }
 
-    .btn:hover {
+    .button:hover {
       transform: scale(1.05);
-      background-color: #ff69b4;
+      box-shadow: 0 6px 20px rgba(255, 204, 0, 0.6);
     }
 
-    .emoji {
-      display: inline-block;
-      animation: float 2.5s infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0); }
-    }
-
-    .falling {
-      position: absolute;
-      font-size: 2rem;
+    .emoji-fall {
+      position: fixed;
+      top: -50px;
+      font-size: 2em;
       animation: fall linear infinite;
-      user-select: none;
+      opacity: 0.7;
       pointer-events: none;
-      z-index: 0;
     }
 
     @keyframes fall {
       0% {
-        top: -5%;
-        left: calc(100% * var(--left));
-        transform: rotate(0deg);
-        opacity: 1;
+        transform: translateY(-50px);
       }
       100% {
-        top: 110%;
-        left: calc(100% * var(--left));
-        transform: rotate(360deg);
-        opacity: 0;
+        transform: translateY(110vh);
       }
     }
   </style>
 </head>
 <body>
+  <h1>🎉 Забери свій бонус тут і зроби свій депозит! Діў просто зараз! 🎉</h1>
 
-  <div class="official">Офіційна акція 🎯</div>
+  <a href="https://go.scityweb.com/click?pid=786&offer_id=38&sub2=vitbonv_KAZIK" class="button">🌟 Бонус 200 гривень</a><br>
+  <a href="https://l29.caslworld.com/" class="button">🎠 600 фріспінів</a><br>
+  <a href="https://gguapromo.com/l/67901e2cac16b0e9740042d7?sub_id=%7Bvitbonv_KAZIK%7D" class="button">🏰 Подарунок 250 грн</a><br>
+  <a href="https://1wjaov.top/casino/list?open=register&p=pe6a" class="button">777 фріспінів 🎠</a>
 
-  <h1>🎰 Лови свій шанс на виграш! 🎰</h1>
-
-  <div class="offer">
-    <div class="emoji">🔥</div>
-    <p>Бонус 200 гривень просто зараз!</p>
-    <a class="btn" href="https://go.scityweb.com/click?pid=786&offer_id=38&sub2=vitbonv_KAZIK">Забрати бонус</a>
-  </div>
-
-  <div class="offer">
-    <div class="emoji">🎰</div>
-    <p>600 фріспінів – не пропусти!</p>
-    <a class="btn" href="https://l29.caslworld.com/">Активувати</a>
-  </div>
-
-  <div class="offer">
-    <div class="emoji">🎁</div>
-    <p>Подарунок 250 грн вже чекає!</p>
-    <a class="btn" href="https://gguapromo.com/l/67901e2cac16b0e9740042d7?sub_id=%7Bvitbonv_KAZIK%7D">Отримати</a>
-  </div>
-
-  <div class="offer">
-    <div class="emoji">🍀</div>
-    <p>777 фріспінів для новачків!</p>
-    <a class="btn" href="https://1wjaov.top/casino/list?open=register&p=pe6a">Грати зараз</a>
-  </div>
-
-  <!-- Falling emojis for background animation -->
+  <!-- Falling emojis -->
   <script>
-    const emojis = ['🎁','💰','🎉','🪙','💸','🎊'];
-    for (let i = 0; i < 70; i++) {
-      const el = document.createElement("div");
-      el.classList.add("falling");
-      el.style.setProperty('--left', Math.random());
-      el.style.animationDuration = (Math.random() * 5 + 5) + "s";
-      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-      document.body.appendChild(el);
-    }
-  </script>
+    const emojis = ["🌟", "💰", "🎁", "🎠", "🎰"];
 
+    function createEmoji() {
+      const emoji = document.createElement("div");
+      emoji.classList.add("emoji-fall");
+      emoji.style.left = Math.random() * 100 + "vw";
+      emoji.style.animationDuration = (5 + Math.random() * 5) + "s";
+      emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      document.body.appendChild(emoji);
+      setTimeout(() => {
+        emoji.remove();
+      }, 10000);
+    }
+
+    setInterval(createEmoji, 500);
+  </script>
 </body>
 </html>
 
