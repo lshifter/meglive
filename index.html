@@ -10,7 +10,7 @@
       font-family: 'Arial', sans-serif;
       color: #fff;
       background: linear-gradient(to bottom right, #1e0033, #4b0082);
-      overflow-x: hidden;
+      overflow: hidden;
       position: relative;
     }
 
@@ -53,10 +53,11 @@
       font-size: 1.2rem;
       border-radius: 50px;
       box-shadow: 0 0 10px #ff69b4;
-      transition: 0.3s ease;
+      transition: transform 0.2s ease, background-color 0.2s ease;
     }
 
     .btn:hover {
+      transform: scale(1.05);
       background-color: #ff69b4;
     }
 
@@ -77,6 +78,7 @@
       animation: fall linear infinite;
       user-select: none;
       pointer-events: none;
+      z-index: 0;
     }
 
     @keyframes fall {
@@ -84,11 +86,13 @@
         top: -5%;
         left: calc(100% * var(--left));
         transform: rotate(0deg);
+        opacity: 1;
       }
       100% {
         top: 110%;
         left: calc(100% * var(--left));
         transform: rotate(360deg);
+        opacity: 0;
       }
     }
   </style>
@@ -126,10 +130,10 @@
   <!-- Falling emojis for background animation -->
   <script>
     const emojis = ['🎁','💰','🎉','🪙','💸','🎊'];
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 70; i++) {
       const el = document.createElement("div");
       el.classList.add("falling");
-      el.style.left = Math.random() + "";
+      el.style.setProperty('--left', Math.random());
       el.style.animationDuration = (Math.random() * 5 + 5) + "s";
       el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
       document.body.appendChild(el);
@@ -138,4 +142,5 @@
 
 </body>
 </html>
+
 
