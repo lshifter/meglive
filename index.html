@@ -1,467 +1,250 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Гран-при Нидерландов 2025 | Формула-1</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkfAmJ+4s46F1u0m7VQ0CBXlI3G2YcN6Z1cGfZkF3dP2Vb6Yx1Y6Y6jaw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    :root{
-      --bg:#0b0d12;--bg-2:#0f1218;--card:#131826;--primary:#ff6a00;--accent:#00e0ff;--text:#e8ecf3;--muted:#9aa3b2;--success:#18c37d;--danger:#ff3b3b;--glass:rgba(255,255,255,.06)
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:linear-gradient(180deg,#07090d, #101725);color:var(--text);font-family:Roboto,system-ui,-apple-system,Segoe UI,Arial,sans-serif;scroll-behavior:smooth}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{width:min(1120px, 92vw);margin-inline:auto}
-
-    /* Header */
-    .header{position:sticky;top:0;z-index:50;background:rgba(7,9,13,.7);backdrop-filter: blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
-    .header-content{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .logo-text{font-family:Orbitron, sans-serif;margin:0;font-size:22px;letter-spacing:.8px}
-    .highlight{color:var(--primary)}
-    .nav-list{display:flex;gap:14px;list-style:none;margin:0;padding:0}
-    .nav-link{display:block;padding:8px 12px;border-radius:999px;color:var(--text);opacity:.9}
-    .nav-link:focus-visible,.nav-link:hover{background:var(--glass);outline:none}
-
-    /* Mobile nav button */
-    .burger{display:none;font-size:22px;padding:10px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:transparent;color:var(--text)}
-
-    /* Hero */
-    .hero{position:relative;isolation:isolate;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(1200px 400px at 60% -20%, rgba(255,106,0,.25), transparent 60%), radial-gradient(800px 300px at 10% 0%, rgba(0,224,255,.15), transparent 60%)}
-    .hero-content{padding:64px 0 28px;display:grid;gap:18px}
-    .hero-title{font-family:Orbitron, sans-serif;line-height:1.02;margin:8px 0;display:grid;gap:4px;font-size:clamp(28px, 7vw, 64px)}
-    .title-line{display:block}
-    .hero-subtitle{color:var(--muted);margin:6px 0 2px}
-    .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
-    .stat{background:var(--glass);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:14px;text-align:center}
-    .stat-number{display:block;font-size:clamp(20px,5vw,28px);font-weight:800}
-    .stat-label{font-size:12px;color:var(--muted)}
-
-    /* Buttons */
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));color:var(--text);cursor:pointer}
-    .btn-primary{background:linear-gradient(180deg, #ff7a1a, #ff6a00);border:none;color:#0a0a0a;font-weight:700}
-    .btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-
-    /* Drivers */
-    .drivers{padding:36px 0}
-    .section-title{font-family:Orbitron, sans-serif;margin:0 0 6px;font-size:clamp(22px,4.5vw,32px)}
-    .section-subtitle{color:var(--muted);margin:0 0 20px}
-    .drivers-grid{display:grid;grid-template-columns:1fr;gap:14px}
-    .driver-card{background:linear-gradient(180deg,#121828,#0f1422);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;position:relative}
-    .driver-media{position:relative;aspect-ratio:16/9;overflow:hidden}
-    .driver-media img{width:100%;height:100%;object-fit:cover}
-    .driver-number{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.5);backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,.15);padding:6px 10px;border-radius:999px;font-weight:800}
-    .driver-info{display:grid;gap:10px;padding:14px}
-    .driver-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
-    .driver-name{margin:0;font-size:18px}
-    .driver-team{margin:0;color:var(--muted);font-size:14px}
-    .driver-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-    .stat-item{background:var(--glass);border:1px solid rgba(255,255,255,.08);padding:10px;border-radius:12px;text-align:center}
-    .support-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
-    .support-count{font-size:13px;color:var(--muted)}
-    .support-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:none;background:linear-gradient(180deg,#ff7a1a,#ff6a00);color:#0c0c0c;font-weight:800;cursor:pointer}
-
-    /* Betting (События) */
-    .betting{padding:28px 0}
-    .event-card{display:grid;grid-template-columns:1fr;gap:12px;background:linear-gradient(180deg,#0f141f,#0d121c);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden}
-    .event-media{position:relative}
-    .event-media img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/9}
-    .event-badge{position:absolute;top:10px;left:10px;background:#0c111a;border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:999px;color:var(--accent);font-weight:700}
-    .event-body{padding:14px;display:grid;gap:10px}
-    .event-title{margin:0;font-size:18px}
-    .event-desc{margin:0;color:var(--muted)}
-    .event-actions{display:flex;flex-wrap:wrap;gap:10px}
-    .toggle{display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:var(--glass)}
-    .toggle input{width:20px;height:20px}
-
-    /* Live popup */
-    .live-fab{position:fixed;right:16px;bottom:16px;z-index:60}
-    .live-fab button{box-shadow:0 10px 30px rgba(255,106,0,.35)}
-    .modal{position:fixed;inset:0;background:rgba(0,0,0,.66);backdrop-filter: blur(6px);display:none;place-items:center;padding:20px;z-index:70}
-    .modal.active{display:grid}
-    .modal-card{width:min(920px, 96vw);background:#0c111a;border:1px solid rgba(255,255,255,.1);border-radius:18px;overflow:hidden}
-    .modal-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
-    .modal-title{margin:0;font-family:Orbitron,sans-serif;font-size:18px}
-    .modal-body{padding:14px}
-    .teaser{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
-    .teaser img{width:100%;height:auto;display:block}
-    .play{position:absolute;inset:0;display:grid;place-items:center}
-    .play .icon{width:74px;height:74px;border-radius:50%;background:rgba(12,17,26,.8);border:2px solid rgba(255,255,255,.2);display:grid;place-items:center}
-    .play .icon i{font-size:28px;color:#fff;margin-left:4px}
-    .gate{margin-top:12px;padding:12px;border:1px dashed rgba(255,255,255,.16);border-radius:12px;color:var(--muted)}
-
-    /* Footer */
-    .footer{margin-top:40px;background:#0a0e16;border-top:1px solid rgba(255,255,255,.08)}
-    .footer-content{display:grid;gap:18px;padding:18px 0}
-    .social-links{display:flex;gap:10px}
-    .social-link{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:var(--glass);border:1px solid rgba(255,255,255,.08)}
-    .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:12px 0;color:var(--muted);font-size:13px}
-
-    /* Desktop */
-    @media (min-width: 720px){
-      .hero-content{grid-template-columns:1.2fr .8fr;align-items:end;padding:88px 0 44px}
-      .hero-stats{grid-template-columns:repeat(3, minmax(140px, 1fr));gap:14px}
-      .drivers-grid{grid-template-columns:repeat(3, 1fr)}
-      .event-card{grid-template-columns:1.1fr .9fr}
-      .footer-content{grid-template-columns: 1.2fr .8fr .8fr}
-    }
-
-    /* Mobile nav */
-    @media (max-width: 720px){
-      .burger{display:inline-flex}
-      .nav{position:fixed;inset:56px 0 auto 0;background:#0a0e16;display:none;border-bottom:1px solid rgba(255,255,255,.08);z-index:49}
-      .nav.open{display:block}
-      .nav-list{flex-direction:column;padding:12px}
-      .nav-link{padding:12px 10px}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гран-при Нидерландов 2025 | Формула-1</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="header" aria-label="Верхняя навигация">
-    <div class="container header-content">
-      <div class="logo" aria-label="Логотип">
-        <h1 class="logo-text">F1 <span class="highlight">NETHERLANDS</span></h1>
-      </div>
-      <button class="burger" id="burger" aria-expanded="false" aria-controls="main-nav" aria-label="Меню">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-      <nav class="nav" id="main-nav">
-        <ul class="nav-list">
-          <li><a href="#home" class="nav-link">Главная</a></li>
-          <li><a href="#drivers" class="nav-link">Гонщики</a></li>
-          <li><a href="#events" class="nav-link">События/Ставки</a></li>
-          <li><a href="#experts" class="nav-link">Эксперты</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section id="home" class="hero" aria-label="Герой">
-    <div class="container hero-content">
-      <div>
-        <h2 class="hero-title">
-          <span class="title-line">ГРАН-ПРИ</span>
-          <span class="title-line highlight">НИДЕРЛАНДОВ</span>
-          <span class="title-line">2025</span>
-        </h2>
-        <p class="hero-subtitle">Зандворт • 29 августа • День гонки</p>
-        <div class="hero-stats" role="list" aria-label="Ключевые показатели">
-          <div class="stat" role="listitem"><span class="stat-number">72</span><span class="stat-label">Кругов</span></div>
-          <div class="stat" role="listitem"><span class="stat-number">4.259</span><span class="stat-label">км</span></div>
-          <div class="stat" role="listitem"><span class="stat-number">306.587</span><span class="stat-label">км общая дистанция</span></div>
-        </div>
-      </div>
-      <div>
-        <a class="btn btn-primary" href="#drivers" aria-label="Перейти к фаворитам">Поддержать фаворита</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Drivers -->
-  <section id="drivers" class="drivers" aria-label="Фавориты">
-    <div class="container">
-      <h3 class="section-title">Топ‑3 кандидата на победу</h3>
-      <p class="section-subtitle">Выберите пилота — поддержка откроет доступ к трансляции</p>
-
-      <div class="drivers-grid" id="driversGrid">
-        <!-- Norris -->
-        <article class="driver-card" data-driver="norris">
-          <div class="driver-media">
-            <img src="https://images.unsplash.com/photo-1558981285-6f0c94958bb6?q=80&w=2000&auto=format&fit=crop" alt="Lando Norris — McLaren" loading="lazy" />
-            <div class="driver-number">4</div>
-          </div>
-          <div class="driver-info">
-            <div class="driver-top">
-              <div>
-                <h4 class="driver-name">Lando Norris</h4>
-                <p class="driver-team">McLaren</p>
-              </div>
-              <button class="support-btn" data-action="support"><i class="fa-solid fa-heart"></i><span>Поддержать</span></button>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1 class="logo-text">F1 <span class="highlight">NETHERLANDS</span></h1>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link">Главная</a></li>
+                        <li><a href="#drivers" class="nav-link">Гонщики</a></li>
+                        <li><a href="#experts" class="nav-link">Эксперты</a></li>
+                    </ul>
+                </nav>
             </div>
-            <div class="driver-stats">
-              <div class="stat-item"><div class="stat-number">8</div><div class="stat-label">Побед</div></div>
-              <div class="stat-item"><div class="stat-number">15</div><div class="stat-label">Подиумов</div></div>
-            </div>
-            <div class="support-row"><span class="support-count">Поддержек: <b data-count>0</b></span>
-              <a class="btn" href="#events">Перейти к ставкам</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Leclerc -->
-        <article class="driver-card" data-driver="leclerc">
-          <div class="driver-media">
-            <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=2000&auto=format&fit=crop" alt="Charles Leclerc — Ferrari" loading="lazy" />
-            <div class="driver-number">16</div>
-          </div>
-          <div class="driver-info">
-            <div class="driver-top">
-              <div>
-                <h4 class="driver-name">Charles Leclerc</h4>
-                <p class="driver-team">Ferrari</p>
-              </div>
-              <button class="support-btn" data-action="support"><i class="fa-solid fa-heart"></i><span>Поддержать</span></button>
-            </div>
-            <div class="driver-stats">
-              <div class="stat-item"><div class="stat-number">6</div><div class="stat-label">Побед</div></div>
-              <div class="stat-item"><div class="stat-number">22</div><div class="stat-label">Подиумов</div></div>
-            </div>
-            <div class="support-row"><span class="support-count">Поддержек: <b data-count>0</b></span>
-              <a class="btn" href="#events">Перейти к ставкам</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Verstappen -->
-        <article class="driver-card" data-driver="verstappen">
-          <div class="driver-media">
-            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000&auto=format&fit=crop" alt="Max Verstappen — Red Bull Racing" loading="lazy" />
-            <div class="driver-number">1</div>
-          </div>
-          <div class="driver-info">
-            <div class="driver-top">
-              <div>
-                <h4 class="driver-name">Max Verstappen</h4>
-                <p class="driver-team">Red Bull Racing</p>
-              </div>
-              <button class="support-btn" data-action="support"><i class="fa-solid fa-heart"></i><span>Поддержать</span></button>
-            </div>
-            <div class="driver-stats">
-              <div class="stat-item"><div class="stat-number">12</div><div class="stat-label">Побед</div></div>
-              <div class="stat-item"><div class="stat-number">18</div><div class="stat-label">Подиумов</div></div>
-            </div>
-            <div class="support-row"><span class="support-count">Поддержек: <b data-count>0</b></span>
-              <a class="btn" href="#events">Перейти к ставкам</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Betting Events -->
-  <section id="events" class="betting" aria-label="События и ставки">
-    <div class="container">
-      <h3 class="section-title">События для ставок</h3>
-      <p class="section-subtitle">Особые условия Зандворта: дождь и вероятность выезда сейфти-кара</p>
-
-      <article class="event-card">
-        <div class="event-media">
-          <img src="https://images.unsplash.com/photo-1494216928456-ae75fd966279?q=80&w=2000&auto=format&fit=crop" alt="Мокрая трасса, дождевые условия — возможен сейфти-кар" loading="lazy" />
-          <span class="event-badge"><i class="fa-solid fa-cloud-rain"></i> Дождь / Safety Car</span>
         </div>
-        <div class="event-body">
-          <h4 class="event-title">Будет ли сейфти‑кар?</h4>
-          <p class="event-desc">При дожде и инцидентах на трассе вероятен выезд автомобиля безопасности. Выберите прогноз:</p>
-          <div class="event-actions">
-            <label class="toggle" for="sc-yes"><input type="radio" name="safetycar" id="sc-yes" value="yes" /> Да, будет</label>
-            <label class="toggle" for="sc-no"><input type="radio" name="safetycar" id="sc-no" value="no" /> Нет, не будет</label>
-            <button class="btn btn-primary" id="placeEventBet"><i class="fa-solid fa-ticket"></i> Зафиксировать ставку</button>
-          </div>
-          <small class="event-desc" id="eventStatus" aria-live="polite"></small>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="racing-lines"></div>
         </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Experts -->
-  <section id="experts" class="experts">
-    <div class="container">
-      <h3 class="section-title">Экспертное мнение</h3>
-      <p class="section-subtitle">Трасса требует идеальной работы с шинами и внимательности в дождь</p>
-      <div class="drivers-grid">
-        <article class="driver-card">
-          <div class="driver-info">
-            <h4 class="driver-name">Анна Петрова</h4>
-            <p class="driver-team">Автоспортивный аналитик</p>
-            <p class="event-desc">«Дождевые условия в Зандворте усиливают риск сейфти‑кара, особенно на быстрых бэнкингах. Управление износом Inter/Full Wet решит исход».</p>
-          </div>
-        </article>
-        <article class="driver-card">
-          <div class="driver-info">
-            <h4 class="driver-name">Иван Смирнов</h4>
-            <p class="driver-team">Бывший гонщик F1</p>
-            <p class="event-desc">«Первые круги и рестарты — самый высокий шанс для ошибок. Сейфти‑кар здесь — не редкость при переменной погоде».</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer" aria-label="Подвал">
-    <div class="container">
-      <div class="footer-content">
-        <div>
-          <h4 class="section-title" style="margin:0 0 6px">F1 Netherlands 2025</h4>
-          <p class="section-subtitle" style="margin:0">Официальный лендинг Гран‑при Нидерландов</p>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">ГРАН-ПРИ</span>
+                    <span class="title-line highlight">НИДЕРЛАНДОВ</span>
+                    <span class="title-line">2025</span>
+                </h1>
+                <p class="hero-subtitle">Зандворт • 29 августа • День Гонки</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">72</span>
+                        <span class="stat-label">Кругов</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4.259</span>
+                        <span class="stat-label">км</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">306.587</span>
+                        <span class="stat-label">км общая дистанция</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-          <h5 class="driver-name" style="margin:0 0 8px">Быстрые ссылки</h5>
-          <p style="margin:0;display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn" href="#home">Главная</a>
-            <a class="btn" href="#drivers">Гонщики</a>
-            <a class="btn" href="#events">События</a>
-          </p>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
         </div>
-        <div>
-          <h5 class="driver-name" style="margin:0 0 8px">Следите за нами</h5>
-          <div class="social-links">
-            <!-- Оставили только Telegram по запросу -->
-            <a href="https://t.me/+fytZa5svbPgyMzJi" target="_blank" rel="noopener" class="social-link" aria-label="Telegram">
-              <i class="fab fa-telegram"></i>
-            </a>
-          </div>
+    </section>
+
+    <!-- Drivers Section -->
+    <section id="drivers" class="drivers">
+        <div class="container">
+            <h2 class="section-title">Топ-3 Кандидата на Победу</h2>
+            <p class="section-subtitle">Официально выбранные фавориты сегодняшней гонки</p>
+            
+            <div class="drivers-grid">
+                <!-- Lando Norris -->
+                <div class="driver-card" data-driver="norris">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="driver-image">
+                                <img src="https://media.formula1.com/image/upload/v1712849107/content/dam/fom-website/drivers/2024Drivers/norris.png" alt="Lando Norris">
+                                <div class="driver-number">4</div>
+                            </div>
+                            <div class="driver-info">
+                                <h3 class="driver-name">Lando Norris</h3>
+                                <p class="driver-team">McLaren</p>
+                                <div class="driver-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-value">8</span>
+                                        <span class="stat-label">Побед</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-value">15</span>
+                                        <span class="stat-label">Подиумов</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="card-content">
+                                <h4>Почему Ландо?</h4>
+                                <p>Невероятная скорость на технических трассах и отличное понимание настроек автомобиля делают его главным претендентом на победу в Зандворте.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="support-btn" onclick="supportDriver('norris')">
+                        <span class="btn-text">Поддержать</span>
+                        <span class="btn-icon"><i class="fas fa-heart"></i></span>
+                    </button>
+                </div>
+
+                <!-- Charles Leclerc -->
+                <div class="driver-card" data-driver="leclerc">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="driver-image">
+                                <img src="https://tse2.mm.bing.net/th/id/OIP.yQWX0hP-dAJ3RtTfEOH9WAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Charles Leclerc">
+                                <div class="driver-number">16</div>
+                            </div>
+                            <div class="driver-info">
+                                <h3 class="driver-name">Charles Leclerc</h3>
+                                <p class="driver-team">Ferrari</p>
+                                <div class="driver-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-value">6</span>
+                                        <span class="stat-label">Побед</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-value">22</span>
+                                        <span class="stat-label">Подиумов</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="card-content">
+                                <h4>Почему Шарль?</h4>
+                                <p>Мастерство в квалификации и агрессивный стиль гонки в сочетании с улучшенной Ferrari делают его серьезным соперником.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="support-btn" onclick="supportDriver('leclerc')">
+                        <span class="btn-text">Поддержать</span>
+                        <span class="btn-icon"><i class="fas fa-heart"></i></span>
+                    </button>
+                </div>
+
+                <!-- Max Verstappen -->
+                <div class="driver-card" data-driver="verstappen">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="driver-image">
+                                <img src="https://tse1.mm.bing.net/th/id/OIP.emwMfoHyoVkrQQAf82ewAAHaGm?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Max Verstappen">
+                                <div class="driver-number">1</div>
+                            </div>
+                            <div class="driver-info">
+                                <h3 class="driver-name">Max Verstappen</h3>
+                                <p class="driver-team">Red Bull Racing</p>
+                                <div class="driver-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-value">12</span>
+                                        <span class="stat-label">Побед</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-value">18</span>
+                                        <span class="stat-label">Подиумов</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="card-content">
+                                <h4>Почему Макс?</h4>
+                                <p>Домашняя трасса, поддержка болельщиков и непревзойденное мастерство в сложных условиях - идеальная комбинация для победы.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="support-btn" onclick="supportDriver('verstappen')">
+                        <span class="btn-text">Поддержать</span>
+                        <span class="btn-icon"><i class="fas fa-heart"></i></span>
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Formula 1 Netherlands Grand Prix. Все права защищены.</p>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- Live FAB -->
-  <div class="live-fab">
-    <button class="btn btn-primary" id="openLive"><i class="fa-solid fa-tower-broadcast"></i> Смотреть трансляцию</button>
-  </div>
+    <!-- Expert Opinions Section -->
+    <section id="experts" class="experts">
+        <div class="container">
+            <h2 class="section-title">Экспертное Мнение</h2>
+            <p class="section-subtitle">Что говорят профессионалы о сегодняшней гонке</p>
+            
+            <div class="experts-grid">
+                <div class="expert-card">
+                    <div class="expert-avatar">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face" alt="Анна Петрова">
+                    </div>
+                    <div class="expert-content">
+                        <h3 class="expert-name">Анна Петрова</h3>
+                        <p class="expert-title">Автоспортивный Аналитик</p>
+                        <blockquote class="expert-quote">
+                            "Сегодняшняя гонка в Зандворте обещает быть одной из самых непредсказуемых в сезоне. Трасса требует от пилотов максимальной концентрации и точности, особенно в скоростных секциях. Ключевым фактором станет управление шинами, учитывая абразивность покрытия и возможные изменения погодных условий."
+                        </blockquote>
+                    </div>
+                </div>
 
-  <!-- Modal: Live stream -->
-  <div class="modal" id="liveModal" role="dialog" aria-modal="true" aria-labelledby="liveTitle">
-    <div class="modal-card">
-      <div class="modal-head">
-        <h4 id="liveTitle" class="modal-title">Прямая трансляция</h4>
-        <button class="btn" id="closeLive" aria-label="Закрыть окно"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      <div class="modal-body">
-        <div class="teaser">
-          <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=2000&auto=format&fit=crop" alt="Стоп‑кадр с трассы, превью трансляции" />
-          <div class="play">
-            <button class="play-btn btn btn-primary" id="playLive" aria-label="Начать воспроизведение"><span class="icon"><i class="fa-solid fa-play"></i></span> Смотреть</button>
-          </div>
+                <div class="expert-card">
+                    <div class="expert-avatar">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Иван Смирнов">
+                    </div>
+                    <div class="expert-content">
+                        <h3 class="expert-name">Иван Смирнов</h3>
+                        <p class="expert-title">Бывший Гонщик F1</p>
+                        <blockquote class="expert-quote">
+                            "Зандворт – это вызов для каждого пилота. Здесь нет места ошибкам. Особенно интересными будут первые круги, где борьба за позицию может привести к неожиданным инцидентам. Важно, как пилоты справятся с давлением толпы, ведь голландские болельщики создают невероятную атмосферу."
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="gate" id="gateMsg">
-          Для доступа поддержите любого кандидата (нажмите «Поддержать» на карточке пилота) или подтвердите ставку в разделе «События».
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>F1 Netherlands 2025</h3>
+                    <p>Официальный сайт Гран-при Нидерландов</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Быстрые ссылки</h4>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#drivers">Гонщики</a></li>
+                        <li><a href="#experts">Эксперты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Следите за нами</h4>
+                    <div class="social-links">
+                        <a href="https://t.me/+fytZa5svbPgyMzJi" class="social-link"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Formula 1 Netherlands Grand Prix. Все права защищены.</p>
+            </div>
         </div>
-        <div class="gate" id="unlockMsg" style="display:none">
-          Доступ открыт! Нажмите «Смотреть» ещё раз, чтобы перейти к трансляции.
-        </div>
-      </div>
-    </div>
-  </div>
+    </footer>
 
-  <script>
-    // Utility: persistent state
-    const state = {
-      supports: JSON.parse(localStorage.getItem('supports')||'{}'),
-      eventBet: localStorage.getItem('eventBet')||null
-    }
-    const saveSupports = () => localStorage.setItem('supports', JSON.stringify(state.supports))
-
-    // Mobile nav toggle
-    const burger = document.getElementById('burger')
-    const nav = document.getElementById('main-nav')
-    burger?.addEventListener('click', () => {
-      const open = nav.classList.toggle('open')
-      burger.setAttribute('aria-expanded', String(open))
-    })
-    nav?.addEventListener('click', e => { if(e.target.matches('.nav-link')) nav.classList.remove('open') })
-
-    // Drivers support handling
-    const driversGrid = document.getElementById('driversGrid')
-    driversGrid?.querySelectorAll('[data-driver]').forEach(card => {
-      const id = card.dataset.driver
-      const countEl = card.querySelector('[data-count]')
-      const btn = card.querySelector('[data-action="support"]')
-      const count = state.supports[id]||0
-      countEl.textContent = count
-      btn.addEventListener('click', () => {
-        state.supports[id] = (state.supports[id]||0)+1
-        saveSupports()
-        countEl.textContent = state.supports[id]
-        // Mark as supported to unlock live
-        localStorage.setItem('supportedAny', '1')
-        toast(`Поддержка засчитана: ${id}`)
-      })
-    })
-
-    // Event bet handling
-    const eventStatus = document.getElementById('eventStatus')
-    const placeEventBet = document.getElementById('placeEventBet')
-    placeEventBet?.addEventListener('click', () => {
-      const val = document.querySelector('input[name="safetycar"]:checked')?.value
-      if(!val){ eventStatus.textContent = 'Выберите вариант: Да или Нет.'; return }
-      state.eventBet = val
-      localStorage.setItem('eventBet', val)
-      localStorage.setItem('supportedAny', '1') // тоже открывает доступ
-      eventStatus.textContent = `Ставка сохранена: ${val==='yes'?'ожидается выезд сейфти‑кара':'без сейфти‑кара'}.`
-      toast('Ставка подтверждена')
-    })
-
-    // Live modal gating
-    const liveModal = document.getElementById('liveModal')
-    const openLive = document.getElementById('openLive')
-    const closeLive = document.getElementById('closeLive')
-    const playLive = document.getElementById('playLive')
-    const gateMsg = document.getElementById('gateMsg')
-    const unlockMsg = document.getElementById('unlockMsg')
-
-    const openModal = () => { liveModal.classList.add('active'); document.body.style.overflow='hidden' }
-    const closeModal = () => { liveModal.classList.remove('active'); document.body.style.overflow='' }
-
-    openLive?.addEventListener('click', openModal)
-    closeLive?.addEventListener('click', closeModal)
-    liveModal?.addEventListener('click', (e)=>{ if(e.target===liveModal) closeModal() })
-
-    const isUnlocked = () => localStorage.getItem('supportedAny')==='1'
-
-    const LIVE_URL = '#replace-with-your-stream-url' // Замените на реальную ссылку трансляции
-
-    const updateGate = () => {
-      if(isUnlocked()){
-        gateMsg.style.display='none'; unlockMsg.style.display='block'
-      } else { gateMsg.style.display='block'; unlockMsg.style.display='none' }
-    }
-
-    updateGate()
-
-    playLive?.addEventListener('click', () => {
-      if(isUnlocked()){
-        window.location.href = LIVE_URL
-      } else {
-        toast('Поддержите пилота или подтвердите ставку, чтобы открыть доступ')
-      }
-    })
-
-    // Accessible toast notifications
-    const toast = (msg) => {
-      const n = document.createElement('div')
-      n.textContent = msg
-      n.setAttribute('role','status')
-      Object.assign(n.style, {
-        position:'fixed', left:'50%', transform:'translateX(-50%)', bottom:'20px',
-        background:'rgba(12,17,26,.96)', color:'white', padding:'10px 14px', borderRadius:'12px',
-        border:'1px solid rgba(255,255,255,.16)', zIndex: 80
-      })
-      document.body.appendChild(n)
-      setTimeout(()=>n.remove(), 2200)
-    }
-
-    // Fix for mobile clickability: ensure no overlay blocks anchors
-    // (no full-screen invisible elements; modal uses pointer-events only when open)
-
-    // On load, bring keyboard focus to main content for a11y when navigating via hash
-    window.addEventListener('hashchange', ()=>{
-      const id = location.hash.slice(1)
-      const el = document.getElementById(id)
-      if(el){ el.setAttribute('tabindex','-1'); el.focus({preventScroll:true}); el.scrollIntoView({behavior:'smooth', block:'start'}) }
-    })
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
 
